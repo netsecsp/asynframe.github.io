@@ -1,6 +1,4 @@
-# Asynframe framework [english](/index_EN.md)  
-***  
-# 项目介绍  
+# 项目介绍 [english](/index_EN.md)   
 > 这是一款windows平台下基于消息驱动的SDK开发框架，提供线程、管道、文件和网络等基础接口。  
 
 **解决软件产品开发过程中的五大问题:**  
