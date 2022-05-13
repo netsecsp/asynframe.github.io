@@ -86,22 +86,22 @@ int main(int argc, const char *argv[])
 ```
 
 # 开发  
-- [asynframe导出函数](https://github.com/netsecsp/asynframe/blob/master/doc/pluginapi.md)  
+- [asynframe导出函数](/doc/pluginapi.md)  
 
 - 接口  
-  [IAsynFrame](https://github.com/netsecsp/asynframe/blob/master/doc/IAsynFrame.txt)  
-  [IAsynFileSystem](https://github.com/netsecsp/asynframe/blob/master/doc/IAsynFileSystem.txt)  
-  [IAsynIpcChannel](https://github.com/netsecsp/asynframe/blob/master/doc/IAsynIpcChannel.txt)  
-  [IAsynNetwork](https://github.com/netsecsp/asynframe/blob/master/doc/IAsynNetwork.txt)  
-  [IAsynNetAgent](https://github.com/netsecsp/asynframe/blob/master/doc/IAsynNetAgent.txt)  
-  [IConsole](https://github.com/netsecsp/asynframe/blob/master/doc/IConsole.txt)  
-  [ICrashExplorer](https://github.com/netsecsp/asynframe/blob/master/doc/ICrashExplorer.txt)  
-  [INet](https://github.com/netsecsp/asynframe/blob/master/doc/INet.txt)  
-  [IProxy](https://github.com/netsecsp/asynframe/blob/master/doc/IProxy.txt)  
-  [ISsl](https://github.com/netsecsp/asynframe/blob/master/doc/ISsl.txt)  
-  [IVmHost](https://github.com/netsecsp/asynframe/blob/master/doc/IVmHost.txt)  
+  [IAsynFrame](/doc/IAsynFrame.txt)  
+  [IAsynFileSystem](/doc/IAsynFileSystem.txt)  
+  [IAsynIpcChannel](/doc/IAsynIpcChannel.txt)  
+  [IAsynNetwork](/doc/IAsynNetwork.txt)  
+  [IAsynNetAgent](/doc/IAsynNetAgent.txt)  
+  [IConsole](/doc/IConsole.txt)  
+  [ICrashExplorer](/doc/ICrashExplorer.txt)  
+  [INet](/doc/INet.txt)  
+  [IProxy](/doc/IProxy.txt)  
+  [ISsl](/doc/ISsl.txt)  
+  [IVmHost](/doc/IVmHost.txt)  
 
-- [插件](https://github.com/netsecsp/asynframe/blob/master/doc/externapi.md)   
+- [插件](/doc/externapi.md)   
 
 # 鸣谢  
 > [Log4cplus](https://github.com/log4cplus/log4cplus)  
