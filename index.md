@@ -1,9 +1,10 @@
+<title>Asynframe</title>
 ## Asynframe [english](/index_EN.md) | 中文
 
 # 项目介绍  
 > 这是一款windows平台下基于消息驱动的SDK开发框架，提供线程、管道、文件和网络等基础接口。  
 
-**解决软件产品开发过程中的5大问题:**  
+**解决软件产品开发过程中的五大问题:**  
 1. 多线程和跨模块之间的通讯以及同步问题  
 2. 资源占用过多／性能问题  
 3. 死锁问题  
@@ -52,8 +53,7 @@
 
 1. 需在工程里设置asynframe相应的include/lib路径  
 2. 根据工程的运行库选择链接asynframe相应的asynsdk_mini-[MD/MDd/MT/MTd].lib  
-3. 链接asyncore.lib(提供3个api函数[^1])  
-[^1]: STDAPI_(extern HRESULT) Initialize( IAsynMessageEvents *param1, IKeyvalSetter *param2 );<br>STDAPI_(extern InstancesManager*) GetInstancesManager();<br>STDAPI_(extern HRESULT) Destory();  
+3. 链接asyncore.lib(提供3个api函数)  
 ```c++
 int main(int argc, const char *argv[])
 {
