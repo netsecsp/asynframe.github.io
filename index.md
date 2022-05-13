@@ -1,10 +1,10 @@
-## Asynframe README [english](https://github.com/netsecsp/asynframe/blob/master/README_EN.md) | 中文
+## Asynframe [english](/index_EN.md) | 中文
 
 # 项目介绍  
 > 这是一款windows平台下基于消息驱动的SDK开发框架，提供线程、管道、文件和网络等基础接口。  
 
-解决软件产品开发过程中的5大问题:  
-1. 多线程和跨模块之间的通讯/同步问题  
+**解决软件产品开发过程中的5大问题:**  
+1. 多线程和跨模块之间的通讯以及同步问题  
 2. 资源占用过多／性能问题  
 3. 死锁问题  
 4. 极难控制执行超时的问题
@@ -44,7 +44,7 @@
 |lua|插件|基于lua-5.4.4实现ICommand接口<br>1.支持多线程|\support\testframe<br>\support\testlua\testapi|
 
 # 变更记录
-> 2022/05/05发布基于windows平台的asynframe版本1.0   
+> 2022/05/05发布基于windows平台的asynframe   
 
 # 编译环境
 > sdk_1.0.0.0-Msvc2019_20220505.zip是通过Microsoft Visual Studio 2019编译的SDK  
