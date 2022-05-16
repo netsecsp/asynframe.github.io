@@ -1,6 +1,6 @@
-## Asynframe framework english | [中文](/index.md)
+## Asynframe framework 1.0 
 
-# Background  
+# Background [中文](/index.md) 
 In the process of software product development, we often encounter problems in the following scenarios:
 1. Centralized management of configuration parameters required by each module-- Involving configuration parameter loading and persistence;  
 2. Can the interface group use the existing network module to develop its own functions, such as submitting the log file to the background through HTTP protocol-- Knowledge difficulties involving network, HTTP DNS and using network agent;  

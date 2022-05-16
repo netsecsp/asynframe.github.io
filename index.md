@@ -1,6 +1,6 @@
-## Asynframe framework [english](/index_EN.md) | 中文
+## Asynframe framework 1.0 
 
-# 项目背景  
+# 项目背景 [english](/index_EN.md)   
 软件产品开发过程中经常碰到如下场景的问题:   
 1. 各个模块所需的配置参数集中管理?--涉及配置参数加载以及持久化等问题；  
 2. 界面组能否利用现有的网络模块自己开发功能, 比如需要把日志文件通过http协议提交到后台?--涉及网络、httpdns以及使用网络代理等知识难点；  
