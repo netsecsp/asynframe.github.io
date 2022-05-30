@@ -65,9 +65,7 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 
 1. 需在工程里设置asynframe相应的include/lib路径  
 2. 根据工程的运行库选择链接asynframe相应的asynsdk_mini-[MD/MDd/MT/MTd].lib  
-3. 链接asyncore.lib(提供3个api函数[^1])  
-[^1]: STDAPI_(extern HRESULT) Initialize( IAsynMessageEvents *param1, IKeyvalSetter *param2 );<br>STDAPI_(extern InstancesManager*) GetInstancesManager();<br>STDAPI_(extern HRESULT) Destory();  
-4. 附上例子 [Pingx -4 www.baidu.com -d=udp://*:53/](https://github.com/netsecsp/pingx)  
+3. 附上例子[Pingx -4 www.baidu.com -d=udp://*:53/](https://github.com/netsecsp/pingx)   
 ```c++
 class CAsynPingHandler : public asynsdk::asyn_message_events_impl
 {
@@ -229,7 +227,7 @@ int main(int argc, const char *argv[])
 ```
 
 # 开发  
-- [asynframe导出函数](/doc/pluginapi.md)  
+- [asynframe framework 导出函数](/doc/pluginapi.md)  
 
 - 接口  
   [IAsynFrame](/doc/IAsynFrame.txt)  

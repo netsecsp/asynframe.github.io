@@ -1,4 +1,5 @@
 ## Asynframe framework v1.1
+> https://github.com/netsecsp/asynframe  
 
 # Background [中文](/index.md) 
 In the process of software product development, we often encounter problems in the following scenarios:
@@ -64,8 +65,7 @@ Asynframe framework solves the six problems mentioned above in the process of so
 
 1. The include / lib path corresponding to asynframe needs to be set in the project  
 2. Select and link the corresponding asynsdk of asynframe according to the runtime of the asynsdk_mini-[MD/MDd/MT/MTd].lib  
-3. Link asyncore.lib(Three API functions are provided[^1])  
-[^1]: STDAPI_(extern HRESULT) Initialize( IAsynMessageEvents *param1, IKeyvalSetter *param2 );<br>STDAPI_(extern InstancesManager*) GetInstancesManager();<br>STDAPI_(extern HRESULT) Destory();  
+3. demo[Pingx -4 www.baidu.com -d=udp://*:53/](https://github.com/netsecsp/pingx)  
 ```c++
 int main(int argc, const char *argv[])
 {
