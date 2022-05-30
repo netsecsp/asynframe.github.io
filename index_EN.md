@@ -98,7 +98,7 @@ int main(int argc, const char *argv[])
 ```
 
 # Development  
-- [asynframe export function](/doc/pluginapi.md)  
+- [asynframe framework export functions](/doc/pluginapi.md)  
 
 - Interface  
   [IAsynFrame](/doc/IAsynFrame.txt)  
