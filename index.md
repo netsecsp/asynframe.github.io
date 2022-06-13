@@ -63,8 +63,8 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 > 2022/05/05 发布windows平台的asynframe framework v1.0   
 
 # 编译环境
-> sdk_v1.2-Msvc2019_20220610.zip是通过Microsoft Visual Studio 2019编译的SDK  
-> sdk_v1.2-Msvc2013_20220610.zip是通过Microsoft Visual Studio 2013编译的SDK  
+> sdk_v1.2-Msvc2019_20220613.zip是通过Microsoft Visual Studio 2019编译的SDK  
+> sdk_v1.2-Msvc2013_20220613.zip是通过Microsoft Visual Studio 2013编译的SDK  
 
 1. 需在工程里设置asynframe相应的include/lib路径  
 2. 根据工程的运行库选择链接asynframe相应的asynsdk_mini-[MD/MDd/MT/MTd].lib  
