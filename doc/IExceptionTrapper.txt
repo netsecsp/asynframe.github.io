@@ -37,15 +37,15 @@ import "IAsynFrame.idl";
     [
         object,
         uuid(1F4C098C-5615-4623-8EB0-64A012DC7DB4),
-        helpstring("ICrashExplorer Interface"),
+        helpstring("IExceptionTrapper Interface"),
         pointer_default(unique)
     ]
-    interface ICrashExplorer : IUnknown
+    interface IExceptionTrapper : IUnknown
     {
-        HRESULT SetupThreadExceptTrapper();
+        HRESULT SetupThreadExceptionTrapper();
         /////////////////////////////////////////////////////////////////////////
-        HRESULT DumpStack( [in ]handle hExcptinfo, [in ]IAsynMessageEvents* events );
-        HRESULT Write( [in ]handle file, [in ]handle hExcptinfo, [in ]uint32_t type );
+        HRESULT WriteDumpfile( [in ]STRING memname, [in ]uint32_t dumptype, [in ]STRING filepath );
+        HRESULT DumpStackinfo( [in ]STRING memname, [in ]IStringSetter* stack );
     };
 
     cpp_quote("#pragma pack(pop)")
