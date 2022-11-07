@@ -65,6 +65,7 @@ Asynframe framework solves the six problems mentioned above in the process of so
 1. Crash explorer implements cross process output of stack information and dmp file when crashing  
 2. SSL fixes compatibility issues  
 3. Support plug-in hot upgrade  
+
 > 2022/06/08 Release asynframe framework v1.2  
 > 2022/05/26 Release asynframe framework v1.1  
 > 2022/05/05 Release asynframe framework v1.0  
