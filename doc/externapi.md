@@ -1,6 +1,6 @@
 # CreateAsynFramePlugin函数  
 
-通过实例管理器InstancesManager::Verify接口加载插件，同时设定该插件实例的插件名字  
+通过实例管理器InstancesManager::Require接口加载插件，同时设定该插件实例的插件名字  
 
 # 语法  
 ```c++  
@@ -15,7 +15,7 @@ HRESULT __stdcall CreateAsynFramePlugin( /*[out]*/IAsynFramePlugin** object )
 S_OK表创建插件成功，其他值表示失败  
 
 # 备注
-InstancesManager::Verify接口实现流程  
+InstancesManager::Require接口实现流程  
 ```mermaid
 flowchart
 A(开始)-->B{名字存在?}

@@ -6,17 +6,17 @@
 ```c++  
 HRESULT __stdcall CreateAsynDnsResolver(/*[in ]*/InstancesManager* lpInstancesManager,  
       /*[in ]*/IUnknown** param1,  
-      /*[in ]*/const char* param2,  
+      /*[in ]*/const char* uri,  
       /*[in ]*/IAsynMessageEvents* events,  
       /*[out]*/IAsynDnsResolver** object )  
 ```  
 
 ## 开发  
 uri格式：schema://[host1|..|hostn]:port/...  
-配置udp解析域名，udp://\*:53/  
-配置tcp解析域名，tcp://\*:53/  
-配置腾讯云解析域名，http://119.29.29.29/d?dn=[host].&ip=[ip]&ttl=1  
-配置阿里云解析域名，http://203.107.1.33/{account_id}/d?host=[host]&ip=[ip]&query=[af]  
+1. 配置udp解析域名，udp://\*:53/  
+2. 配置tcp解析域名，tcp://\*:53/  
+3. 配置腾讯云解析域名，http://119.29.29.29/d?dn=[host].&ip=[ip]&ttl=1  
+4. 配置阿里云解析域名，http://203.107.1.33/{account_id}/d?host=[host]&ip=[ip]&query=[af]  
 
 创建dns对象：  
 ```c++  

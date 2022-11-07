@@ -14,7 +14,7 @@ spCommand.Attach(asynsdk::CreateCommand(lpInstancesManager, "lua", 0, 0, 0));
 if( spCommand )
 {
     spCommand->Execute(0, STRING_from_string("open"), &STRING_from_string("test.lua"), 1, 0); //执行test.lua脚本
-    spCommand->Execute(0, STRING_from_string("exec"), &STRING_from_string("print("This is my world!")"), 1, 0); //执行lua脚本块
+    spCommand->Execute(0, STRING_from_string("print("This is my world!")"), 0, 0, 0); //执行lua脚本块
 }
 ```  
 
