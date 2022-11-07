@@ -22,17 +22,21 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 6. 集成lua插件实现热更新  
 
 **功能特性:**  
-1. 可轻松集成到MFC，[DUI](https://github.com/duilib/duilib)，[Qt6.x](https://download.qt.io/archive/qt) 等其他第三方开源项目  
+1. 通过微线程核对象可轻松集成到MFC，[DUI](https://github.com/duilib/duilib)，[Qt6.x](https://download.qt.io/archive/qt) 等其他第三方开源项目  
 2. 通过设备链提供统一设备操作接口（包括File、Pipe、Socket等）  
 3. 通过操作链解决集成第三方开源项目时的线程之间的同步/通讯、执行超时以及资源/性能等问题  
 4. 提供基本网络协议模块：dns/udp/tcp/ssl/ftp/http/rtsp/proxy/websocket  
 6. 引用计数管理对象内存  
 7. 支持微秒级定时器  
 8. 集成[Log4cplus](https://github.com/log4cplus/log4cplus)，统一模块输出日志  
+![image](https://netsecsp.github.io/img/01_asynframe.jpg)  
 
 **开发优势:**  
-1. 协助产品模块化。  
-2. 统一的开发模板，无锁化机制以及高性能IO框架降低开发者学习成本。能够迅速开发出稳定地，高性能的应用模块。可大幅度降低开发代码量。  
+1. 支持可升级的插件化，协助windows产品模块化。  
+2. 支持跨进程获取崩溃时生成堆栈信息和dmp文件。  
+3. 通过微线程核对象嵌入其他线程隔离其他代码，便于代码重构。  
+4. 通过异步执行框架来获得极流畅用户体验。  
+5. 统一的开发模板，无锁化机制、高性能IO框架以及demo降低开发者学习成本。能够迅速开发出稳定地，高性能的应用模块。可大幅度降低开发代码量。  
 
 |模块|类型|功能|例子/程序|
 |:--|:--|:--|:--|
@@ -40,7 +44,7 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 |||集成到mfc|\support\3rd\mfc\testnetserver<br>\support\3rd\mfc\testnetclient_dlg<br>\support\3rd\mfc\testnetclient_doc|
 |||集成到DUI|\support\3rd\\[dui](https://github.com/duilib/duilib)|
 |crashexplorer|插件[asyncore]|捕获当前进程的崩溃信息，同时生成dmp文件|\support\testcrashexplorer|
-|console|插件[asyncore]|命令控制台<br>1.支持加载/卸载ICommand插件：cmd/lua<br>2.支持键盘/鼠标输入|\support\testconsole|
+|console|插件[asyncore]|命令控制台<br>1.支持加载/卸载ICommand插件：cmd/lua/sqlite<br>2.支持键盘/鼠标输入|\support\testconsole|
 |asynfile|插件[asyncore]|文件|\support\testfile_copy<br>\support\testfile_copy-pipe|
 |asynipcs|插件[asyncore]|进程间通讯|\support\testipcclient<br>\support\testipcserver|
 |asynneta|插件[asyncore]|服务端代理<br>1.支持http/https代理：实现Basic/Digest认证<br>2.支持ftp/ftps代理<br>3.支持socks4.0/4.a/5.0代理|[aneta](https://github.com/netsecsp/aneta)|
@@ -57,10 +61,13 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 |sqlite|插件|基于sqlite-3.3.20实现IOsComman接口|\support\testframe|
 
 # 变更记录
-> 2022/11/02 发布windows平台的asynframe framework v1.3: **支持插件热升级**  
-> 2022/06/08 发布windows平台的asynframe framework v1.2: **rtsp插件**  
-> 2022/05/26 发布windows平台的asynframe framework v1.1: **websocket插件**  
-> 2022/05/05 发布windows平台的asynframe framework v1.0   
+> 2022/11/02 发布windows平台的asynframe framework v1.3  
+1. crashexplorer 实现崩溃时跨进程输出栈信息和dmpfile  
+2. ssl 修复兼容性问题  
+3. 支持插件热升级  
+> 2022/06/08 发布windows平台的asynframe framework v1.2  
+> 2022/05/26 发布windows平台的asynframe framework v1.1  
+> 2022/05/05 发布windows平台的asynframe framework v1.0  
 
 # 编译环境
 > sdk_v1.3-Msvc2019_20221102.zip是通过Microsoft Visual Studio 2019编译的SDK  

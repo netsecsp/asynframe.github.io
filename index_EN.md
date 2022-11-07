@@ -29,10 +29,14 @@ Asynframe framework solves the six problems mentioned above in the process of so
 6. Reference count management object memory  
 7. Provide microsecond timer  
 8. Integrate [Log4cplus](https://github.com/log4cplus/log4cplus)，Unified modules output log  
+![image](https://netsecsp.github.io/img/01_asynframe.jpg)  
 
 **Development advantage:**  
-1. Assist in product modularization  
-2. Unified development template, lockless mechanism and high-performance IO framework reduce the learning cost of developers. It can quickly develop stable and high-performance application modules. It can greatly reduce the amount of development code  
+1. Support the upgradable plug-in and assist the modularization of windows products.  
+2. Support the generation of stack information and dmp files when cross process acquisition crashes.  
+3. Embed the micro thread core object into other threads to isolate other codes, so as to facilitate code reconstruction.  
+4. Get a very smooth user experience through the asynchronous execution framework.  
+5. The unified development template, non locking mechanism, high-performance IO framework and demo reduce the learning cost of developers. It can rapidly develop stable and high-performance application modules. It can greatly reduce the amount of developed code.  
 
 |module|type|function|demo|
 |:--|:--|:--|:--|
@@ -57,9 +61,12 @@ Asynframe framework solves the six problems mentioned above in the process of so
 |sqlite|plugin|Implementation of IOsCommand interface based on sqlite-3.3.20|\support\testframe|
 
 # Change log
-> 2022/11/02 Release asynframe framework v1.3: support plugin hot upgrade
-> 2022/06/08 Release asynframe framework v1.2: rtsp plugin  
-> 2022/05/26 Release asynframe framework v1.1: websocket plugin  
+> 2022/11/02 Release asynframe framework v1.3  
+1. Crash explorer implements cross process output of stack information and dmp file when crashing  
+2. SSL fixes compatibility issues  
+3. Support plug-in hot upgrade  
+> 2022/06/08 Release asynframe framework v1.2  
+> 2022/05/26 Release asynframe framework v1.1  
 > 2022/05/05 Release asynframe framework v1.0  
 
 # Build
