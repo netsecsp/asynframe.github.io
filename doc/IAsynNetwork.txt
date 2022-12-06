@@ -1,4 +1,4 @@
-/*****************************************************************************
+﻿/*****************************************************************************
 Copyright (c) netsecsp 2012-2032, All rights reserved.
 
 Developer: Shengqian Yang, from China, E-mail: netsecsp@hotmail.com, last updated 05/01/2022
@@ -204,8 +204,7 @@ import "IAsynFrame.idl";
     ]
     interface IAppService : IUnknown
     {
-        //action=0:停止服务；action=1:启动/继续服务；action=2:暂停服务
-        HRESULT Invoke( [in ]uint32_t action ); 
+        HRESULT Control( [in ]uint32_t action ); //action=0:stop action=1:start/play action=2:pause
     };
 
     /////////////////////////////////////////////////////////////////////////////

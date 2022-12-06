@@ -10,7 +10,7 @@ HRESULT __stdcall CreateAsynFramePlugin( /*[out]*/IAsynFramePlugin** object )
 ## 开发  
 加载console插件
 ```c++  
-if( lpInstancesManager->Verify(STRING_from_string(IN_Console)) == S_OK )
+if( lpInstancesManager->Require(STRING_from_string(IN_Console), 0) == S_OK )
 {// 加载成功
     CComPtr<IConsole> console;
     lpInstancesManager->GetInstance(STRING_from_string(IN_Console), IID_IConsole, (void**)&console);
