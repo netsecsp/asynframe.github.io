@@ -1,6 +1,6 @@
 # lua 插件  
 
-基于lua-5.4.4实现IOsCommand接口，用于打通asynframe framework，支持IOsCommand/IVmHost接口  
+基于lua-5.4.4实现IOsCommand接口，支持IOsCommand/IVmHost接口  
 
 ## 导出函数  
 ```c++  

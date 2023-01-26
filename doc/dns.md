@@ -59,7 +59,7 @@ HRESULT CAsynDnsHandler::OnIomsgNotify( uint64_t lParam1, uint64_t lAction, IAsy
              {// 解析成功
                  CComPtr<IStringsStack> spDnsResult;
                  HRESULT r = lpAsynIoOperation->GetCompletedObject(1, IID_IStringsStack, (void **)&spDnsResult);
-                 asynsdk::CStringSetter addr;
+                 asynsdk::CStringSetter addr(1);
                  for(int i = 0; spDnsResult->Pop(&addr) == S_OK ; ++ i)
                  {
                      printf("ip: %s\n", addr.m_val.c_str());
@@ -69,6 +69,7 @@ HRESULT CAsynDnsHandler::OnIomsgNotify( uint64_t lParam1, uint64_t lAction, IAsy
              break;
         }
     }
+    return E_NOTIMPL;
 }
 ```  
 

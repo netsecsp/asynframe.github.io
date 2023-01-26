@@ -22,6 +22,7 @@ S_OK表Initialize asynframe成功，其他值表示失败。
 若param2配置以下键值时： 
 1. key=";sysroot" 表示配置系统工作目录，默认asyncore.dll所在目录  
 2. key=";appdata" 表示配置应用数据目录，默认c:\Users\\\<account>\AppData\Roaming\netsecsp\\\<AppName>  
+3. key=";logprop" 表示配置Log4cplus配置文件，默认app所在目录的prop.txt
 3. key="asyncore_uniqueopspool" 表示是否创建有名工作线程池  
 4. key="asyncore_uniqueevtpool" 表示是否创建有名事件线程池  
 5. key="asyncore_uniquenetpool" 表示是否创建有名网络线程池  

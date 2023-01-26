@@ -29,7 +29,10 @@ m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("ssl"), (IUnknown**)&spA
 ```c++  
 CComPtr<ISsl> spSsl;
 spAsynPtlSocket->QueryInterface(IID_ISsl, (void**)&spSsl);
-spSsl->SetCryptContext(0, 0, &p12_cert, &password);
+STRING certandpasswd[2];
+certandpasswd[0] = STRING_from_string(p12_cert);
+certandpasswd[1] = STRING_from_string(password);
+spSsl->SetCryptContext(0, 0, certandpasswd);
 ```  
 
 ## 例子  
