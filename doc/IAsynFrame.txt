@@ -55,7 +55,7 @@ import "ITypedef.idl";
     /////////////////////////////////////////////////////////////////////////////////
     //系统消息
     cpp_quote( "#define AF_EVENT_SYSTEM (  0  )" )
-    cpp_quote( "#define AF_CTASK_NOTIFY (  1  )" ) //AF_CTASK_NOTIFY   pTask     1/0                X
+    cpp_quote( "#define AF_CTASK_NOTIFY (  1  )" ) //AF_CTASK_NOTIFY   pTask       X                X
     cpp_quote( "#define AF_TIMER        (  2  )" ) //AF_TIMER        Timerid       X                0
     /////////////////////////////////////////////////////////////////////////////////
     cpp_quote( "#define AF_IOMSG_NOTIFY (  5  )" ) //AF_IOMSG_NOTIFY       X lAction IAsynIoOperation
@@ -493,8 +493,8 @@ import "ITypedef.idl";
         //同步调度，只能被pSrcAsynIoOperation取消
         HRESULT Dispatch( [in ]IAsynIoOperation* pSrcAsynIoOperation, [in ]IAsynMessageEvents* events, [in ]uint32_t message, [in ]uint64_t lparam1, [in ]uint64_t lparam2, [in ]IUnknown* object );
         /////////////////////////////////////////////////////////////////////////////
-        //异步任务，可以被Task取消, Owner支持类型: IStringSetter/IAsynMessageEvents, 触发事件: AF_CTASK_NOTIFY lpTask 1/0 X
-        HRESULT PostTask( [in ]IUnknown* Owner, [in ]IUnknown** param1, [in ]STRING param2, [in ]IUnknown* object, [out]IUnknown** ppTask );
+        //投递任务，pOwner支持类型: IStringSetter/IAsynMessageEvents, 触发事件: AF_CTASK_NOTIFY lpTask lparam2 object
+        HRESULT PostTask( [in ]IUnknown* pOwner, [in ]IUnknown** pParam1, [in ]uint64_t lparam2, [in ]IUnknown* object, [out]IUnknown** ppTask );
 
         /////////////////////////////////////////////////////////////////////////////
         HRESULT SendAsynIoOperation( [in ]IAsynIoOperation* pDstAsynIoOperation );

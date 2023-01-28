@@ -219,11 +219,11 @@ import "IAsynFrame.idl";
         //创建异步域名解析器
         HRESULT CreateAsynDnsResolver( [in ]STRING Owner, [in ]IUnknown** param1, [in ]STRING param2, [in ]STRING* etchost, [out]IAsynDnsResolver** ppAsynDnsResolver );
         /////////////////////////////////////////////////////////////////////////
-        HRESULT CreateAsynRawSocket( [in ]uint32_t lType/*默认等于0, 1: icmp  */, [out]IAsynRawSocket** ppAsynRawSocket );
+        HRESULT CreateAsynRawSocket( [in ]uint32_t lType/*默认等于0, 1:icmp*/, [out]IAsynRawSocket** ppAsynRawSocket );
         HRESULT CreateAsynUdpSocket( [out]IAsynUdpSocket** ppAsynUdpSocket );
         HRESULT CreateAsynTcpSocket( [out]IAsynTcpSocket** ppAsynTcpSocket );
         HRESULT CreateAsynTcpSocketListener( [in ]STRING argv/*默认等于null*/, [out]IAsynTcpSocketListener** ppAsynTcpSocketListener );
-        //创建IAsynPtlSocket：建立Socket链, param1传IAsynRawSocket数组, param2传参数
+        //创建IAsynRawSocket：建立Socket链, param1传IAsynRawSocket数组
         HRESULT CreateAsynPtlSocket( [in ]STRING Owner, [in ]IUnknown** param1, [in ]STRING param2, [out]IAsynRawSocket** ppAsynRawSocket );
         /////////////////////////////////////////////////////////////////////////
         //创建应用服务
