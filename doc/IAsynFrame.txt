@@ -542,8 +542,8 @@ import "ITypedef.idl";
         HRESULT SetInstance( [in ]STRING Name, [in ]IUnknown* lpObject );
 
         ///////////////////////////////////////////////////////////////
-        //加载模块, 允许ppObject等于NULL, Owner格式: com.app.<name> | <name>
-        HRESULT Require( [in ]STRING Owner, [out]IUnknown** ppObject );
+        //加载模块, Owner格式: com.app.<name> | <name>
+        HRESULT Require( [in ]STRING Owner );
 
         ///////////////////////////////////////////////////////////////
         //监控组件：可选实现DllCanUnloadNow接口

@@ -34,7 +34,7 @@ import "IAsynNetwork.idl";
     cpp_quote("#pragma pack(push, 1)")
 
     /////////////////////////////////////////////////////////////////////////////
-    [// 鏄惧紡缁ф壙IAppService, param2鍙傛暟鏍煎紡锛氬浜巘cp锛宭en=32&min=16 瀵逛簬udp锛宮ss=1476锛宔vents鐢ㄤ簬鏌ヨ鏄惁鍙互鎺ュ彈鏁版嵁|鏄惁鍙互寤虹珛淇￠亾浠ュ強杩炴帴杞彂
+    [// 显式继承IAppService, param2参数格式：对于tcp，len=32&min=16 对于udp，mss=1476，events用于查询是否可以接受数据|是否可以建立信道以及连接转发
         object,
         uuid(ECA80487-D902-441a-B7DF-52CEE47D13AD),
         helpstring("IDtp Interface"),
