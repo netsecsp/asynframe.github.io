@@ -90,7 +90,7 @@ int main(int argc, const char *argv[])
     CComPtr<IAsynFrameThread> spAsynFrameThread; //Create thread
     lpInstancesManager->NewInstance(0,0,IID_IAsynFrameThread, (void**)&spAsynFrameThread);
 
-    lpInstancesManager->Require(STRING_from_string(IN_AsynNetwork), 0); //Load network module
+    lpInstancesManager->Require(STRING_from_string(IN_AsynNetwork)); //Load network module
 
     CComPtr<IAsynNetwork    > spAsynNetwork;
     lpInstancesManager->GetInstance(STRING_from_string(IN_AsynNetwork), IID_IAsynNetwork, (void **)&spAsynNetwork);
