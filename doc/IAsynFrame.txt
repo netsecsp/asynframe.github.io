@@ -55,12 +55,12 @@ import "ITypedef.idl";
     /////////////////////////////////////////////////////////////////////////////////
     //系统消息
     cpp_quote( "#define AF_EVENT_SYSTEM (  0  )" )
-    cpp_quote( "#define AF_CTASK_NOTIFY (  1  )" ) //AF_CTASK_NOTIFY   pTask       X                X
-    cpp_quote( "#define AF_TIMER        (  2  )" ) //AF_TIMER        Timerid       X                0
+    cpp_quote( "#define AF_TIMER        (  1  )" ) //AF_TIMER        Timerid       X                0
     /////////////////////////////////////////////////////////////////////////////////
     cpp_quote( "#define AF_IOMSG_NOTIFY (  5  )" ) //AF_IOMSG_NOTIFY       X lAction IAsynIoOperation
     cpp_quote( "#define AF_EVENT_NOTIFY (  6  )" ) //AF_EVENT_NOTIFY pObject       X                X
     cpp_quote( "#define AF_QUERY_RESULT (  7  )" ) //AF_QUERY_RESULT pObject       X                X
+    cpp_quote( "#define AF_CTASK_NOTIFY (  8  )" ) //AF_CTASK_NOTIFY pObject       X                X
     /////////////////////////////////////////////////////////////////////////////////
     //应用消息: 最小值是10000
     cpp_quote( "#define AF_EVENT_APPID1 (10000)" )
@@ -259,9 +259,11 @@ import "ITypedef.idl";
         //返 回 值：S_OK   -表示获取成功
         //          S_FALSE-表示获取成功，但IAsynIoOperation已被取消
         HRESULT GetAsynFrameThread( [out]IAsynFrameThread** ppAsynFrameThread );
+        /////////////////////////////////////////////////////////////////////////////
         //查询状态
         //返 回 值：S_OK   -表示空闲
         //          S_FALSE-表示使用
+        //          E_ABORT-表示取消
         HRESULT QueryStatus();
 
         /////////////////////////////////////////////////////////////////////////////
@@ -378,7 +380,7 @@ import "ITypedef.idl";
     {
         //返 回 值：S_OK   -已经Open
         //          S_FALSE-尚未Open
-        HRESULT IsOpened( [in ]IStringSetter* pDeviceName );
+        HRESULT IsOpened( [out]STRING* pDeviceName );
         //只有流类型才支持自动Read/Write操作，允许pBlockSize=NULL，pBlockSize指示设备最佳分组大小
         //返 回 值：S_OK   -流类型
         //          S_FALSE-块类型
@@ -490,10 +492,10 @@ import "ITypedef.idl";
         HRESULT InThread( [in ]uint32_t threadid );
 
         /////////////////////////////////////////////////////////////////////////////
-        //同步调度，只能被pSrcAsynIoOperation取消
-        HRESULT Dispatch( [in ]IAsynIoOperation* pSrcAsynIoOperation, [in ]IAsynMessageEvents* events, [in ]uint32_t message, [in ]uint64_t lparam1, [in ]uint64_t lparam2, [in ]IUnknown* object );
+        //同步调度，pOwner支持类型: IStringSetter/IAsynMessageEvents, 可以被pSrcAsynIoOperation取消
+        HRESULT Dispatch( [in ]IAsynIoOperation* pSrcAsynIoOperation, [in ]IUnknown* pOwner, [in ]uint32_t message, [in ]uint64_t lparam1, [in ]uint64_t lparam2, [in ]IUnknown* object );
         /////////////////////////////////////////////////////////////////////////////
-        //投递任务，pOwner支持类型: IStringSetter/IAsynMessageEvents, 触发事件: AF_CTASK_NOTIFY lpTask lparam2 object
+        //投递任务，pOwner支持类型: IStringSetter/IAsynMessageEvents, 无法被取消, 触发事件: AF_CTASK_NOTIFY lpTask lparam2 object
         HRESULT PostTask( [in ]IUnknown* pOwner, [in ]IUnknown** pParam1, [in ]uint64_t lparam2, [in ]IUnknown* object, [out]IUnknown** ppTask );
 
         /////////////////////////////////////////////////////////////////////////////

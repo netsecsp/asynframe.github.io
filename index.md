@@ -1,4 +1,4 @@
-## Asynframe framework v1.3.2  
+## Asynframe framework v1.4.0  
 > https://github.com/netsecsp/asynframe  
 
 # 项目背景 [english](/index_EN.md)   
@@ -56,22 +56,24 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 |ssl|插件[asynsock]|ssl/tls加/解密<br>1.支持p12证书|\support\testnetclient_ssl<br>\support\testnetserver_ssl|
 |proxy|插件[asynsock]|客户端代理<br>1.支持http/https代理：实现Basic/Digest认证<br>2.支持ftp/ftps代理<br>3.支持socks4.0/4.a/5.0代理|\support\testnetclient_proxy<br>\support\testnetserver_socks|
 |websocket|插件[asynsock]|websocket协议<br>1.支持数据帧分片<br>2.优先发送控制帧|\support\testnetclient_websocket<br>\support\testnetserver_websocket|
+|dtp|插件[asynsock]|实现tcp/udp的端口复用框架|\support\testnetserver_dtp-tcp.port<br>\support\testnetserver_dtp-udp.port|
 |zip|插件|基于zlib-1.2.11.0实现IDataTransmit接口<br>1.支持压缩zip文件<br>2.deflate/inflate数据|\support\testframe|
 |lua|插件|基于lua-5.4.4实现IOsCommand接口<br>1.支持多线程|\support\testframe<br>\support\testlua\testapi|
 |sqlite|插件|基于sqlite-3.3.20实现IOsComman接口|\support\testframe|
 
 # 变更记录
+> 2023/02/22 发布windows平台的asynframe framework v1.4.0  
+1. 发布插件: dtp/ras
+2. 调整接口定义
+3. 修复已知问题
 > 2023/02/02 发布windows平台的asynframe framework v1.3.2  
-1. crashexplorer 实现崩溃时跨进程输出栈信息和dmpfile  
-2. ssl 修复兼容性问题  
-3. 支持插件升级  
-> 2022/06/08 发布windows平台的asynframe framework v1.2  
-> 2022/05/26 发布windows平台的asynframe framework v1.1  
-> 2022/05/05 发布windows平台的asynframe framework v1.0  
+> 2022/06/08 发布windows平台的asynframe framework v1.2.0  
+> 2022/05/26 发布windows平台的asynframe framework v1.1.0  
+> 2022/05/05 发布windows平台的asynframe framework v1.0.0  
 
 # 编译环境
-> sdk_v1.3.2-Msvc2019_20230202.zip是通过Microsoft Visual Studio 2019编译的SDK  
-> sdk_v1.3.2-Msvc2013_20230202.zip是通过Microsoft Visual Studio 2013编译的SDK  
+> sdk_v1.4.0-Msvc2019_20230222.zip是通过Microsoft Visual Studio 2019编译的SDK  
+> sdk_v1.4.0-Msvc2013_20230222.zip是通过Microsoft Visual Studio 2013编译的SDK  
 
 1. 需在工程里设置asynframe相应的include/lib路径  
 2. 根据工程的运行库选择链接asynframe相应的asynsdk_mini-[MD/MDd/MT/MTd].lib  
@@ -122,6 +124,7 @@ int main(int argc, const char *argv[])
   [IProxy](/doc/IProxy.txt)  
   [ISsl](/doc/ISsl.txt)  
   [IVmHost](/doc/IVmHost.txt)  
+  [IDtp](/doc/IDtp.txt)  
 
 - [插件使用](/doc/externapi.md)   
 
