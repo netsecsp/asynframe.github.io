@@ -1,14 +1,24 @@
-# sqlite 插件  
+# Sqlite 插件  
 
-基于sqlite-3.3.20实现IOsCommand接口，支持select/execute功能  
+基于sqlite-3.3.20提供IOsCommand接口，支持select/execute功能  
 
 ## 导出函数  
 ```c++  
 HRESULT __stdcall CreateCommand(/*[in ]*/InstancesManager* lpInstancesManager,  
-      /*[in ]*/IUnknown** ppParam1,  
+      /*[in ]*/IUnknown** param1,  
       /*[in ]*/uint64_t param2,  
       /*[out]*/IOsCommand** object)  
 ```  
+## 参数
+*[in ]param1*  
+*[in, opt]param2*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过InstancesManager.NewInstance转调Sqlite.CreateCommand接口  
 
 ## 开发  
 插入数据  

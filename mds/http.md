@@ -1,6 +1,6 @@
-# http 插件  
+# Http 插件  
 
-实现http[s/t/u]的协议处理模块，支持INet/IAsynTcpSocket/IAsynRawSocket/IAsynTcpSocketListener等接口
+提供http[s/t/u]的协议处理功能，支持INet/IAsynTcpSocket/IAsynRawSocket/IAsynTcpSocketListener等接口
 
 ## 导出函数  
 ```c++  
@@ -9,6 +9,17 @@ HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesMana
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
+
+## 参数
+*[in]param1*  
+*[in, opt]param2*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过IAsynNetwork.CreateAsynPtlSocket转调Http.CreateAsynPtlSocket接口  
 
 ## 开发
 创建http[s/t]对象[client]：
@@ -68,4 +79,4 @@ HRESULT CService::OnIomsgNotify( uint64_t lParam1, uint64_t lAction, IAsynIoOper
 ```  
 
 ## 例子  
-[http client/server](https://github.com/netsecsp/ahttp)
+[http client/server](https://github.com/netsecsp/ahttp)  

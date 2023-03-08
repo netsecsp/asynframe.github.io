@@ -1,6 +1,6 @@
-# ssl 插件  
+# Ssl 插件  
 
-实现ssl握手/加密/解密处理模块，支持ISsl/IAsynTcpSocket/IAsynRawSocket/IAsynTcpSocketListener等接口
+提供ssl握手/加密/解密处理功能，支持ISsl/IAsynTcpSocket/IAsynRawSocket/IAsynTcpSocketListener等接口
 
 ## 导出函数  
 ```c++  
@@ -9,6 +9,17 @@ HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesMana
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
+
+## 参数
+*[in]param1*  
+*[in, opt]param2*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过IAsynNetwork.CreateAsynPtlSocket转调Ssl.CreateAsynPtlSocket接口  
 
 ## 开发  
 创建ssl对象[client]：  
@@ -27,12 +38,13 @@ m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("ssl"), (IUnknown**)&spA
 
 设置p12证书  
 ```c++  
-CComPtr<ISsl> spSsl;
+CComPtr< ISsl> spSsl;
 spAsynPtlSocket->QueryInterface(IID_ISsl, (void**)&spSsl);
-STRING certandpasswd[2];
-certandpasswd[0] = STRING_from_string(p12_cert);
-certandpasswd[1] = STRING_from_string(password);
-spSsl->SetCryptContext(0, 0, certandpasswd);
+
+STRING certpasswd[2];
+certpasswd[0] = STRING_from_string(p12_cert);
+certpasswd[1] = STRING_from_string(password);
+spSsl->SetCryptContext(0, 0, certpasswd);
 ```  
 
 ## 例子  

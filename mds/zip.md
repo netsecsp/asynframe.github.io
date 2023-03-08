@@ -1,6 +1,6 @@
-# zip 插件  
+# Zip 插件  
 
-基于zlib-1.2.11.0实现IDataTransmit接口，具备zip多个文件以及deflate/inflate数据功能  
+基于zlib-1.2.11.0提供IDataTransmit接口，具备zip多个文件以及deflate/inflate数据功能  
 
 ## 导出函数  
 ```c++  
@@ -9,6 +9,17 @@ HRESULT __stdcall CreateDataTransmit(/*[in ]*/InstancesManager* lpInstancesManag
       /*[in ]*/uint64_t param2,  
       /*[out]*/IDataTransmit** object)  
 ```  
+
+## 参数
+*[in ]param1*  
+*[in, opt]param2*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过InstancesManager.NewInstance转调Zip.CreateDataTransmit接口  
 
 ## 开发  
 zip多个文件  

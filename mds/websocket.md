@@ -1,7 +1,6 @@
-# websocket 插件  
+# Websocket 插件  
 
-实现websocket的协议处理模块，支持INet/IAsynTcpSocket/IAsynRawSocket/IAsynTcpSocketListener等接口  
-自动把http/1.1协议升级到websocket协议  
+提供websocket的协议处理功能，支持INet/IAsynTcpSocket/IAsynRawSocket/IAsynTcpSocketListener等接口  
 
 ## 导出函数  
 ```c++  
@@ -10,6 +9,18 @@ HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesMana
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
+
+## 参数
+*[in]param1*  
+*[in, opt]param2*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过IAsynNetwork.CreateAsynPtlSocket转调Websocket.CreateAsynPtlSocket接口  
+自动把http/1.1协议升级到websocket协议  
 
 ## 开发
 创建ws/wss对象[client]：

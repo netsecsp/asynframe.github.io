@@ -1,4 +1,4 @@
-## Asynframe framework v1.4.1  
+## Asynframe framework v1.4.2  
 > https://github.com/netsecsp/asynframe  
 
 # Background [中文](/index.md)  
@@ -62,7 +62,7 @@ Asynframe framework solves the six problems mentioned above in the process of so
 |sqlite|plugin|Implementation of IOsCommand interface based on sqlite-3.3.20|\support\testframe|
 
 # Change log
-> 2023/03/05 Release asynframe framework v1.4.1  
+> 2023/03/08 Release asynframe framework v1.4.2  
 1. Publish plugin: dtp/ras  
 2. Adjust interface definition  
 3. Fix known problems  
@@ -73,13 +73,13 @@ Asynframe framework solves the six problems mentioned above in the process of so
 > 2022/05/05 Release asynframe framework v1.0.0  
 
 # Build
-> sdk_v1.4.1-Msvc2019_20230305.zip is compiled through Microsoft Visual Studio 2019  
-> sdk_v1.4.1-Msvc2013_20230305.zip is compiled through Microsoft Visual Studio 2013  
+> sdk_v1.4.2-Msvc2019_20230308.zip is compiled through Microsoft Visual Studio 2019  
+> sdk_v1.4.2-Msvc2013_20230308.zip is compiled through Microsoft Visual Studio 2013  
 
 1. The include / lib path corresponding to asynframe needs to be set in the project  
 2. Select and link the corresponding asynsdk of asynframe according to the runtime of the asynsdk_mini-[MD/MDd/MT/MTd].lib  
 3. Link asyncore.lib(3 API functions are provided[^1])  
-[^1]: STDAPI_(extern HRESULT) Initialize( IAsynMessageEvents *param1, IKeyvalSetter *param2 );<br>STDAPI_(extern InstancesManager*) GetInstancesManager();<br>STDAPI_(extern HRESULT) Destory();  
+[^1]: STDAPI_(extern HRESULT) Initialize( IAsynMessageEvents *param1, IUnknown *param2 );<br>STDAPI_(extern InstancesManager*) GetInstancesManager();<br>STDAPI_(extern HRESULT) Destory();  
 ```c++
 int main(int argc, const char *argv[])
 {
@@ -112,46 +112,45 @@ int main(int argc, const char *argv[])
 ```
 
 # Development  
-- [asynframe framework export functions](/doc/pluginapi.md)  
 
 - Interface  
-  [IAsynFrame](/doc/IAsynFrame.txt)  
-  [IAsynFileSystem](/doc/IAsynFileSystem.txt)  
-  [IAsynIpcChannel](/doc/IAsynIpcChannel.txt)  
-  [IAsynNetwork](/doc/IAsynNetwork.txt)  
-  [IAsynNetAgent](/doc/IAsynNetAgent.txt)  
-  [IConsole](/doc/IConsole.txt)  
-  [IExceptionTrapper](/doc/IExceptionTrapper.txt)  
-  [INet](/doc/INet.txt)  
-  [IProxy](/doc/IProxy.txt)  
-  [ISsl](/doc/ISsl.txt)  
-  [IVmHost](/doc/IVmHost.txt)  
-  [IDtp](/doc/IDtp.txt)  
+  [IAsynFrame](https://netsecsp.github.io/doc/IAsynFrame.txt)  
+  [IAsynFileSystem](https://netsecsp.github.io/doc/IAsynFileSystem.txt)  
+  [IAsynIpcChannel](https://netsecsp.github.io/doc/IAsynIpcChannel.txt)  
+  [IAsynNetwork](https://netsecsp.github.io/doc/IAsynNetwork.txt)  
+  [IAsynNetAgent](https://netsecsp.github.io/doc/IAsynNetAgent.txt)  
+  [IConsole](https://netsecsp.github.io/doc/IConsole.txt)  
+  [IExceptionTrapper](https://netsecsp.github.io/doc/IExceptionTrapper.txt)  
+  [INet](https://netsecsp.github.io/doc/INet.txt)  
+  [IProxy](https://netsecsp.github.io/doc/IProxy.txt)  
+  [ISsl](https://netsecsp.github.io/doc/ISsl.txt)  
+  [IVmHost](https://netsecsp.github.io/doc/IVmHost.txt)  
+  [IDtp](https://netsecsp.github.io/doc/IDtp.txt)  
 
-- [Plugins](/doc/externapi.md)   
+- [Plugins](https://netsecsp.github.io/doc/externapi.md)   
   <u>base modules</u>  
-  - asyncore  
-  - asynfile  
-  - asynipcs  
-  - asynsock  
-  - crashexplorer  
+  - [asyncore](https://netsecsp.github.io/mds/asynframe.md)  
+  - [asynfile](https://netsecsp.github.io/mds/asynfile.md)  
+  - [asynipcs](https://netsecsp.github.io/mds/asynipcs.md)  
+  - [asynsock](https://netsecsp.github.io/mds/asynsock.md)  
+  - [crashexplorer](https://netsecsp.github.io/mds/crashexplorer.md)  
 
   <u>network modules</u>  
-  - asynneta  
-  - dtp  
-  - [dns](/doc/dns.md)  
-  - [ftp](/doc/ftp.md)  
-  - [http](/doc/http.md)  
-  - [rtsp](/doc/rtsp.md)  
-  - [proxy](/doc/proxy.md)  
-  - [ssl](/doc/ssl.md)  
-  - [websocket](/doc/websocket.md)  
+  - [asynneta](https://netsecsp.github.io/mds/asynneta.md)    
+  - [dtp](https://netsecsp.github.io/mds/dtp.md)  
+  - [dns](https://netsecsp.github.io/mds/dns.md)  
+  - [ftp](https://netsecsp.github.io/mds/ftp.md)  
+  - [http](https://netsecsp.github.io/mds/http.md)  
+  - [rtsp](https://netsecsp.github.io/mds/rtsp.md)  
+  - [proxy](https://netsecsp.github.io/mds/proxy.md)  
+  - [ssl](https://netsecsp.github.io/mds/ssl.md)  
+  - [websocket](https://netsecsp.github.io/mds/websocket.md)  
 
   <u>extend modules</u>  
-  - [console](/doc/console.md)  
-  - [lua](/doc/lua.md)  
-  - [zip](/doc/zip.md)  
-  - [sqlite](/doc/sqlite.md)  
+  - [console](https://netsecsp.github.io/mds/console.md)  
+  - [lua](https://netsecsp.github.io/mds/lua.md)  
+  - [zip](https://netsecsp.github.io/mds/zip.md)  
+  - [sqlite](https://netsecsp.github.io/mds/sqlite.md)  
 
 # Thanks  
 > [Log4cplus](https://github.com/log4cplus/log4cplus)  

@@ -1,6 +1,6 @@
 # Dtp 插件  
 
-实现Tcp/Udp端口复用的网络框架的AppService模块，通过IAsynNetwork.CreateAppService加载插件  
+提供Tcp/Udp端口复用的网络框架  
 
 ## 导出函数  
 ```c++  
@@ -11,40 +11,44 @@ HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpInstancesManager
       /*[out]*/IAppService** object )  
 ```  
 ## 参数
-*[in ]param1*
-*[in ]param2*
-*[in, opt]events*
-*[out]object*
+*[in]param1*  
+*[in, opt]param2*  
+*[in, opt]events*  
+*[out]object*  
 
 ## 返回值
-S_OK表创建对象成功，其他值表示创建对象失败。
+S_OK表创建对象成功，其他值表示创建对象失败。  
 
 ## 备注
+通过IAsynNetwork.CreateAppService转调Dtp.CreateAppService接口  
 
 ## 开发  
 
-创建实现Tcp端口复用的Dtp服务对象：  
+创建Tcp端口复用的Dtp服务对象：  
 ```c++  
 CComPtr<IAsynTcpSocketListener> spAsynTcpSocketListener;
 spAsynNetwork->CreateAsynTcpSocketListener(0, &spAsynTcpSocketListener);
+
 spAsynTcpSocketListener->Open(m_spAsynFrameThread, AF_INET, SOCK_STREAM, IPPROTO_TCP);
 spAsynTcpSocketListener->Bind(asynsdk::STRING_EX::null, port, TRUE, NULL);
 if( port == 0 ) 
 {
     spAsynTcpSocketListener->GetSockAddress(0, 0, &port, 0);
 }
+
 CComPtr<IDtpService> spDtpService;
 spAsynNetwork->CreateAppService(STRING_from_string("com.svc.dtp"), (IUnknown**)&spAsynTcpSocketListener.p, STRING_from_string("rcvsize=64&minsize=16&timeout=5000"), 0, (IAppService**)&spDtpService);
 
-//创建报文识别器
+//创建各种报文识别器
 
 spDtpService->Control(ST_ActStart); //启动服务
 ```  
 
-创建实现Udp端口复用的Dtp服务对象：  
+创建Udp端口复用的Dtp服务对象：  
 ```c++  
 CComPtr<IAsynUdpSocket> spAsynUdpSocket;
 spAsynNetwork->CreateAsynUdpSocket(&spAsynUdpSocket );
+
 spAsynUdpSocket->Open(m_spAsynFrameThread, AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 spAsynUdpSocket->Bind(asynsdk::STRING_EX::null, port, TRUE, NULL);
 if( port == 0 )
@@ -55,12 +59,12 @@ if( port == 0 )
 CComPtr<IDtpService> spDtpService;
 spAsynNetwork->CreateAppService(STRING_from_string("com.svc.dtp"), (IUnknown**)&spAsynUdpSocket.p, STRING_from_string("mss=1500&obw=1000"), 0, (IAppService**)&spDtpService);
 
-//创建报文识别器
+//创建各种报文识别器
 
 spDtpService->Control(ST_ActStart); //启动服务
 ```  
 
-创建报文识别器  
+创建http报文识别器  
 ```c++  
 class CTcpEvent_http : public asynsdk::asyn_message_events_impl
 {

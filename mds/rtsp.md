@@ -1,6 +1,6 @@
-# rtsp 插件  
+# Rtsp 插件  
 
-实现rtsph/rtsp[t/u]的协议处理模块，支持INet/IAsynTcpSocket/IAsynRawSocket等接口
+提供rtsph/rtsp[t/u]的协议处理功能，支持INet/IAsynTcpSocket/IAsynRawSocket等接口
 
 ## 导出函数  
 ```c++  
@@ -9,6 +9,17 @@ HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesMana
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
+
+## 参数
+*[in]param1*  
+*[in, opt]param2*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过IAsynNetwork.CreateAsynPtlSocket转调Rtsp.CreateAsynPtlSocket接口  
 
 ## 开发
 创建rtsp[t/u]对象[client]：

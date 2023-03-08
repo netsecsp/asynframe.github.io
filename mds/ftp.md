@@ -1,4 +1,4 @@
-# ftp 插件  
+# Ftp 插件  
 
 实现ftp[s/t]的协议处理模块，支持INet/IAsynTcpSocket/IAsynRawSocket/IAsynTcpSocketListener等接口
 
@@ -9,6 +9,17 @@ HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesMana
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
+
+## 参数
+*[in]param1*  
+*[in, opt]param2*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过IAsynNetwork.CreateAsynPtlSocket转调Ftp.CreateAsynPtlSocket接口  
 
 ## 开发  
 创建显式ftp over tls/普通ftp对象[client]：  
@@ -71,4 +82,4 @@ HRESULT CService::OnIomsgNotify( uint64_t lParam1, uint64_t lAction, IAsynIoOper
 ```  
 
 ## 例子  
-[ftp client/server](https://github.com/netsecsp/aftpx)
+[ftp client/server](https://github.com/netsecsp/aftpx)  

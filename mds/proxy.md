@@ -1,6 +1,6 @@
-# proxy 插件  
+# Proxy 插件  
 
-实现ftp/http/socks的客户端代理协议处理模块，支持INet/IAsynTcpSocket/IAsynRawSocket/IAsynProxySocket等接口
+提供端侧ftp/http/socks协议代理功能，支持INet/IAsynTcpSocket/IAsynRawSocket/IAsynProxySocket等接口
 
 ## 导出函数  
 ```c++  
@@ -9,6 +9,17 @@ HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesMana
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
+
+## 参数
+*[in]param1*  
+*[in, opt]param2*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过IAsynNetwork.CreateAsynPtlSocket转调Proxy.CreateAsynPtlSocket接口  
 
 ## 开发
 创建显式ftp over tls/普通ftp代理对象[client]：  

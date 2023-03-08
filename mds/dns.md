@@ -1,15 +1,27 @@
 # dns 插件  
 
-实现基于udp/tcp/http的域名解析模块  
+提供基于udp/tcp/http的域名解析  
 
 ## 导出函数  
 ```c++  
 HRESULT __stdcall CreateAsynDnsResolver(/*[in ]*/InstancesManager* lpInstancesManager,  
       /*[in ]*/IUnknown** param1,  
-      /*[in ]*/const char* uri,  
+      /*[in ]*/const char* param2,  
       /*[in ]*/IAsynMessageEvents* events,  
       /*[out]*/IAsynDnsResolver** object )  
 ```  
+
+## 参数
+*[in ]param1*  
+*[in, opt]param2*  
+*[in ]events*  
+*[out]object*  
+
+## 返回值
+S_OK表创建对象成功，其他值表示创建对象失败。  
+
+## 备注
+通过IAsynNetwork.CreateAsynPtlSocket转调Dns.CreateAsynPtlSocket接口  
 
 ## 开发  
 uri格式：schema://[host1|..|hostn]:port/...  

@@ -1,6 +1,6 @@
 # Ras 插件  
 
-实现remote access service的AppService模块，通过IAsynNetwork.CreateAppService加载插件  
+实现remote access service的AppService模块  
 
 ## 导出函数  
 ```c++  
@@ -12,7 +12,7 @@ HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpInstancesManager
 ```  
 ## 参数
 *[in ]param1*
-*[in ]param2*
+*[in, opt]param2*
 *[in, opt]events*
 *[out]object*
 
@@ -24,15 +24,17 @@ HRESULT __stdcall CreateTaskevents( /*[in ]*/InstancesManager* lpInstancesManage
       /*[out]*/IAsynMessageEvents** object )  
 ```  
 ## 参数
-*[in ]param1*
-*[in ]param2*
-*[in ]thread*
-*[out]object*
+*[in, opt]param1*  
+*[in ]param2*  
+*[in ]thread*  
+*[out]object*  
 
 ## 返回值
-S_OK表创建对象成功，其他值表示创建对象失败。
+S_OK表创建对象成功，其他值表示创建对象失败。  
 
 ## 备注
+通过IAsynNetwork.CreateAppService转调Ras.CreateAppService接口  
+通过IAsynFrameThread.PostTask/Dispath转调Ras.CreateTaskevents接口  
 
 ## 开发  
 枚举网络连接名称  
@@ -49,10 +51,11 @@ for(int i = 0; i < out.m_val.size(); ++ i)
 ```c++  
 CComPtr<IAppService> spAppService;
 
+const char *ras = "拨号连接";
 CKeyvalSetter params(1);
 spAsynNetwork->CreateAppService(STRING_from_string("com.svc.dtp"), (IUnknown**)&params.p, STRING_from_string(ras), 0, (IAppService**)&spAppService);
 
-spAppService->Control(1); //开始拨号
+spAppService->Control(ST_ActStart); //开始拨号
 ```  
 
 ## 例子  
