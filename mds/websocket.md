@@ -75,7 +75,7 @@ HRESULT CService::OnIomsgNotify( uint64_t lParam1, uint64_t lAction, IAsynIoOper
         case Io_recv:
              if( lErrorCode == NO_ERROR )
              {// http.req/ack packet
-                 if( m_upgrade )
+                 if( m_upgraded )
                  {
                      if( lParam1 >= 0x08 && 0x0F >= lParam1 )
                      {// 控制帧
@@ -98,13 +98,13 @@ HRESULT CService::OnIomsgNotify( uint64_t lParam1, uint64_t lAction, IAsynIoOper
                  std::string method = string_from_STRING(Method);
                  std::string params = string_from_STRING(Params);
                  std::string v = string_from_STRING(V);
-                 printf("rcv http %s packet: %*s %*s\n", ack? "ack" : "req", Method.len, Method.ptr, Params.len, Params.ptr);
-                 
+                 printf("rcv http %s packet: %.*s %.*s\n", ack? "ack" : "req", Method.len, Method.ptr, Params.len, Params.ptr);
+
                  if( ack )
                  {// client
                      if( atoi(params.c_str())/100 == 1 )
                      {
-                         m_upgrade = 1; //mark: 升级websocket协议成功
+                         m_upgraded = 1; //mark: 升级websocket协议成功
 
                          发送websocket帧协议
                          ....
@@ -113,7 +113,7 @@ HRESULT CService::OnIomsgNotify( uint64_t lParam1, uint64_t lAction, IAsynIoOper
                  else
                  {// server
                      spNet->SendPacket(STRING_from_string("101"), STRING_from_string("Switching Protocols"), 0, lpAsynIoOperation);
-                     m_upgrade = 1; //mark: 接受http升级到websokcet协议
+                     m_upgraded = 1; //mark: 接受http升级到websokcet协议
                  }
                  .....
              }
