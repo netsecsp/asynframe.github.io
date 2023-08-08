@@ -4,16 +4,16 @@
 
 ## 导出函数  
 ```c++  
-HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpInstancesManager,  
-      /*[in ]*/IUnknown** param1,  
-      /*[in ]*/const char* param2,  
-      /*[in ]*/IAsynMessageEvents* events,  
-      /*[out]*/IAppService** object )  
+HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpIInstancesManager,  
+         /*[in ]*/IUnknown* object,  
+         /*[in ]*/IKeyvalSetter* param1,  
+         /*[in ]*/const char* param2,  
+         /*[out]*/IAppService** object )  
 ```  
 ## 参数
-*[in]param1*  
+*[in]object*  
+*[in, opt]param1*  
 *[in, opt]param2*  
-*[in, opt]events*  
 *[out]object*  
 
 ## 返回值
@@ -37,7 +37,7 @@ if( port == 0 )
 }
 
 CComPtr<IDtpService> spDtpService;
-spAsynNetwork->CreateAppService(STRING_from_string("com.svc.dtp"), (IUnknown**)&spAsynTcpSocketListener.p, STRING_from_string("rcvsize=64&minsize=16&timeout=5000"), 0, (IAppService**)&spDtpService);
+spAsynNetwork->CreateAppService(STRING_from_string("com.svc.dtp"), spAsynTcpSocketListener, 0, STRING_from_string("rcvsize=64&minsize=16&timeout=5000"), (IAppService**)&spDtpService);
 
 //创建各种报文识别器
 
@@ -57,7 +57,7 @@ if( port == 0 )
 }
 
 CComPtr<IDtpService> spDtpService;
-spAsynNetwork->CreateAppService(STRING_from_string("com.svc.dtp"), (IUnknown**)&spAsynUdpSocket.p, STRING_from_string("mss=1500&obw=1000"), 0, (IAppService**)&spDtpService);
+spAsynNetwork->CreateAppService(STRING_from_string("com.svc.dtp"), spAsynUdpSocket, 0, STRING_from_string("mss=1500&obw=1000"), (IAppService**)&spDtpService);
 
 //创建各种报文识别器
 
@@ -81,7 +81,7 @@ public:
         lpAsynNetwork->CreateAsynTcpSocketListener(spAsynDtpSocketListener, &spAsynTcpSocketListener);
 
         CComPtr<IAsynRawSocket> spAsynPtlSocket;
-        lpAsynNetwork->CreateAsynPtlSocket(STRING_from_string("http"), (IUnknown**)&spAsynTcpSocketListener.p, STRING_from_string("tcp/1.1"), &spAsynPtlSocket)
+        lpAsynNetwork->CreateAsynPtlSocket(STRING_from_string("http"), spAsynTcpSocketListener.p, 0, STRING_from_string("tcp/1.1"), &spAsynPtlSocket)
         spAsynPtlSocket->QueryInterface(IID_IAsynTcpSocketListener, (void**)&m_spAsynTcpSocketListener);
 
         m_spAsynTcpSocketListener->Open(lpAsynFrameThread, AF_INET, SOCK_STREAM, IPPROTO_TCP);

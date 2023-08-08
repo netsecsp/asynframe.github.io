@@ -5,13 +5,15 @@
 ## 导出函数  
 ```c++  
 HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesManager,  
+      /*[in ]*/IAsynRawSocket* socket,  
       /*[in ]*/IUnknown** param1,  
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
 
 ## 参数
-*[in]param1*  
+*[in]socket*  
+*[in, opt]param1*  
 *[in, opt]param2*  
 *[out]object*  
 
@@ -26,14 +28,14 @@ S_OK表创建对象成功，其他值表示创建对象失败。
 ```c++  
 CComPtr<IAsynTcpSocket> spAsynInnSocket;
 m_spAsynNetwork->CreateAsynTcpSocket(&spAsynInnSocket);
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("http"), (IUnknown**)&spAsynInnSocket.p, STRING_from_string(ssl? "tls/1.0" : "tcp/1.0"), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("http"), spAsynInnSocket, 0, STRING_from_string(ssl? "tls/1.0" : "tcp/1.0"), &spAsynPtlSocket);
 ```  
 
 创建http[s/t]对象[server]：
 ```c++  
 CComPtr<IAsynTcpSocketListener> spAsynInnSocket;
-m_spAsynNetwork->CreateAsynTcpSocketListener(asynsdk::STRING_EX::null, &spAsynInnSocket);
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("http"), (IUnknown**)&spAsynInnSocket.p, STRING_from_string(ssl? "tls/1.0" : "tcp/1.0"), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynTcpSocketListener(0, &spAsynInnSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("http"), spAsynInnSocket, 0, STRING_from_string(ssl? "tls/1.0" : "tcp/1.0"), &spAsynPtlSocket);
 ```  
 
 发送http.req

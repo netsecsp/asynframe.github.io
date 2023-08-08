@@ -5,13 +5,15 @@
 ## 导出函数  
 ```c++  
 HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesManager,  
+      /*[in ]*/IAsynRawSocket* socket,   
       /*[in ]*/IUnknown** param1,  
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
 
 ## 参数
-*[in]param1*  
+*[in]socket*  
+*[in, opt]param1*  
 *[in, opt]param2*  
 *[out]object*  
 
@@ -26,14 +28,14 @@ S_OK表创建对象成功，其他值表示创建对象失败。
 ```c++  
 CComPtr<IAsynTcpSocket> spAsynInnSocket;
 m_spAsynNetwork->CreateAsynTcpSocket(&spAsynInnSocket);
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("rtsp"), (IUnknown**)&spAsynInnSocket.p, STRING_from_string("tcp/1.0"), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("rtsp"), spAsynInnSocket, 0, STRING_from_string("tcp/1.0"), &spAsynPtlSocket);
 ```  
 
 创建rtsp[t/u]对象[server]：
 ```c++  
 CComPtr<IAsynTcpSocketListener> spAsynInnSocket;
-m_spAsynNetwork->CreateAsynTcpSocketListener(asynsdk::STRING_EX::null, &spAsynInnSocket);
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("rtsp"), (IUnknown**)&spAsynInnSocket.p, STRING_from_string("tcp/1.0"), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynTcpSocketListener(0, &spAsynInnSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("rtsp"), spAsynInnSocket, 0, STRING_from_string("tcp/1.0"), &spAsynPtlSocket);
 ```  
 
 创建rtsph对象[client]：
@@ -41,10 +43,7 @@ m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("rtsp"), (IUnknown**)&sp
 CComPtr<IAsynTcpSocket> spAsynInnSocket[2];
 m_spAsynNetwork->CreateAsynTcpSocket(&spAsynInnSocket[0]);
 m_spAsynNetwork->CreateAsynTcpSocket(&spAsynInnSocket[1]);
-IUnknown* ppParam2[2];
-ppParam2[0] = spAsynInnSocket[0];
-ppParam2[1] = spAsynInnSocket[1];
-m_spAsynNetwork->CreateAsynPtlSocket( STRING_from_string("rtsp"), ppParam2, STRING_from_string("http/1.0"), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynPtlSocket( STRING_from_string("rtsp"), spAsynInnSocket[0], spAsynInnSocket[1], STRING_from_string("http/1.0"), &spAsynPtlSocket);
 ```  
 
 发送rtsp.req

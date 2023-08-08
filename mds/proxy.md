@@ -5,13 +5,15 @@
 ## 导出函数  
 ```c++  
 HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesManager,  
+      /*[in ]*/IAsynRawSocket* socket,  
       /*[in ]*/IUnknown** param1,  
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  
 
 ## 参数
-*[in]param1*  
+*[in]socket*  
+*[in, opt]param1*  
 *[in, opt]param2*  
 *[out]object*  
 
@@ -26,7 +28,7 @@ S_OK表创建对象成功，其他值表示创建对象失败。
 ```c++  
 CComPtr<IAsynTcpSocket> spAsynInnSocket;
 m_spAsynNetwork->CreateAsynTcpSocket(&spAsynInnSocket);
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), (IUnknown**)&spAsynInnSocket.p, STRING_from_string(ssl_explicit? "ftps/1.0" : "ftp/1.0"), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), spAsynInnSocket, 0, STRING_from_string(ssl_explicit? "ftps/1.0" : "ftp/1.0"), &spAsynPtlSocket);
 ```  
 
 创建隐式ftp over tls代理对象[client]：  
@@ -34,15 +36,15 @@ m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), (IUnknown**)&s
 CComPtr<IAsynTcpSocket> spAsynInnSocket;
 m_spAsynNetwork->CreateAsynTcpSocket(&spAsynInnSocket);
 CComPtr<IAsynRawSocket> spAsynSslSocket;
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("ssl"), (IUnknown**)&spAsynInnSocket.p, STRING_from_string("tls/1.0"), &spAsynSslSocket);
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), (IUnknown**)&spAsynSslSocket.p, STRING_from_string("ftp/1.0"), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("ssl"), spAsynInnSocket, 0, STRING_from_string("tls/1.0"), &spAsynSslSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), spAsynSslSocket, 0, STRING_from_string("ftp/1.0"), &spAsynPtlSocket);
 ```  
 
 创建http[s/t]代理对象[client]  
 ```c++  
 CComPtr<IAsynTcpSocket> spAsynInnSocket;
 m_spAsynNetwork->CreateAsynTcpSocket(&spAsynInnSocket);
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), (IUnknown**)&spAsynInnSocket.p, STRING_from_string(ssl? "https/1.0" : "http/1.0"), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), spAsynInnSocket, 0, STRING_from_string(ssl? "https/1.0" : "http/1.0"), &spAsynPtlSocket);
 ```  
 
 创建socks代理对象[client]  
@@ -50,7 +52,7 @@ m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), (IUnknown**)&s
 #define SOCKS_VERNO "5.0" //4.0 4.a 5.0
 CComPtr<IAsynTcpSocket> spAsynInnSocket;
 m_spAsynNetwork->CreateAsynTcpSocket(&spAsynInnSocket);
-m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), (IUnknown**)&spAsynInnSocket.p, STRING_from_string("socks/" SOCKS_VERNO), &spAsynPtlSocket);
+m_spAsynNetwork->CreateAsynPtlSocket(STRING_from_string("proxy"), spAsynInnSocket, 0, STRING_from_string("socks/" SOCKS_VERNO), &spAsynPtlSocket);
 ```  
 
 设置代理信息  

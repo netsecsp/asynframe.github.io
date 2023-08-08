@@ -4,7 +4,7 @@
 
 ## 导出函数  
 ```c++  
-HRESULT __stdcall CreateCommand( /*[in ]*/InstancesManager *lpInstancesManager, /*[in ]*/IUnknown **param1, /*[in ]*/uint64_t param2, /*[out]*/IOsCommand **ppObject)  
+HRESULT __stdcall CreateCommand( /*[in ]*/InstancesManager *lpInstancesManager, /*[in ]*/IUnknown *param1, /*[in ]*/uint64_t param2, /*[out]*/IOsCommand **ppObject)  
 ```  
 ## 参数
 *[in ]param1*  

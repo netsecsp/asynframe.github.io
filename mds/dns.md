@@ -5,16 +5,16 @@
 ## 导出函数  
 ```c++  
 HRESULT __stdcall CreateAsynDnsResolver(/*[in ]*/InstancesManager* lpInstancesManager,  
-      /*[in ]*/IUnknown** param1,  
-      /*[in ]*/const char* param2,  
       /*[in ]*/IAsynMessageEvents* events,  
+      /*[in ]*/IKeyvalSetter* param1,  
+      /*[in ]*/const char* param2,  
       /*[out]*/IAsynDnsResolver** object )  
 ```  
 
 ## 参数
-*[in ]param1*  
-*[in, opt]param2*  
 *[in ]events*  
+*[in, opt]param1*  
+*[in, opt]param2*  
 *[out]object*  
 
 ## 返回值
@@ -30,11 +30,11 @@ uri格式：schema://[host1|..|hostn]:port/...
 3. 配置腾讯云解析域名，http://119.29.29.29/d?dn=[host].&ip=[ip]&ttl=1  
 4. 配置阿里云解析域名，http://203.107.1.33/{account_id}/d?host=[host]&ip=[ip]&query=[af]  
 
-创建dns对象：  
+创建dns 对象：  
 ```c++  
 CComPtr<IAsynDnsResolver> spAsynDnsResolver;
 const char *uri = "udp://8.8.8.8|8.8.4.4:53";
-spAsynNetwork->CreateAsynDnsResolver(STRING_from_string("dns"), 0, STRING_from_string(uri), 0, &spAsynDnsResolver);
+spAsynNetwork->CreateAsynDnsResolver(STRING_from_string("dns"), 0, 0, STRING_from_string(uri), &spAsynDnsResolver);
 ```  
 
 提交解析请求：  
