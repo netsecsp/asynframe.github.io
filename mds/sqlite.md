@@ -6,7 +6,7 @@
 ```c++  
 HRESULT __stdcall CreateCommand(/*[in ]*/InstancesManager* lpInstancesManager,  
       /*[in ]*/IUnknown* param1,  
-      /*[in ]*/uint64_t param2,  
+      /*[in ]*/uint64_t  param2,  
       /*[out]*/IOsCommand** object)  
 ```  
 ## 参数

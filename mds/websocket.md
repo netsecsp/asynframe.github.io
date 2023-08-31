@@ -6,7 +6,7 @@
 ```c++  
 HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesManager,  
       /*[in ]*/IAsynRawSocket* socket,  
-      /*[in ]*/IUnknown* param1,  
+      /*[in ]*/IUnknown*   param1,  
       /*[in ]*/const char* param2,  
       /*[in ]*/IAsynRawSocket** object )  
 ```  

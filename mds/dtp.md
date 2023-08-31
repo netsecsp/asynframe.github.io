@@ -7,7 +7,7 @@
 HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpIInstancesManager,  
          /*[in ]*/IUnknown* object,  
          /*[in ]*/IKeyvalSetter* param1,  
-         /*[in ]*/const char* param2,  
+         /*[in ]*/const char*    param2,  
          /*[out]*/IAppService** object )  
 ```  
 ## 参数

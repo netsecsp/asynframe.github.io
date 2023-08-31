@@ -7,7 +7,7 @@
 HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpIInstancesManager,  
          /*[in ]*/IUnknown* object,  
          /*[in ]*/IKeyvalSetter* param1,  
-         /*[in ]*/const char* param2,  
+         /*[in ]*/const char*    param2,  
          /*[out]*/IAppService** object )  
 ```  
 ## 参数
@@ -17,30 +17,28 @@ HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpIInstancesManage
 *[out]object*  
 
 ```c++  
-HRESULT __stdcall CreateTaskEvents( /*[in ]*/InstancesManager* lpInstancesManager,  
-      /*[in ]*/IAsynFrameThread* thread,  
-      /*[in ]*/IUnknown* param1,  
-      /*[in ]*/handle param2 )  
+HRESULT __stdcall Execute( /*[in ]*/InstancesManager* lpInstancesManager,  
+      /*[in ]*/IUnknown*   param1,  
+      /*[in ]*/const char* param2 )  
 ```  
 ## 参数
-*[in]thread*  
 *[in, opt]param1*  
 *[in, opt]param2*  
 *[out]object*  
 
 ## 返回值
-S_OK表创建对象成功，其他值表示创建对象失败。  
+S_OK表示执行成功，其他值表示执行失败。  
 
 ## 备注
 通过IAsynNetwork.CreateAppService转调Ras.CreateAppService接口  
-通过IAsynFrameThread.PostTask/Dispath转调Ras.CreateTaskEvents接口  
+通过InstancesManager.Execute转调Ras.Execute接口  
 
 ## 开发  
 枚举网络连接名称  
 ```c++  
 asynsdk::CStringSetter  ras(1, "com.svc.ras");
 asynsdk::CStringVector  out(1);
-spAsynFrameThread->Dispatch(0, &ras, AF_QUERY_RESULT, 0, 0, &out);
+lpInstancesManager->Execute(&ras, 0, asynsdk::STRING_EX::null, &out);
 for(int i = 0; i < out.m_val.size(); ++ i)
 {
     printf("%d: %s\n", out.m_val[i].c_str());

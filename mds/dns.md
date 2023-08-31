@@ -7,7 +7,7 @@
 HRESULT __stdcall CreateAsynDnsResolver(/*[in ]*/InstancesManager* lpInstancesManager,  
       /*[in ]*/IAsynMessageEvents* events,  
       /*[in ]*/IKeyvalSetter* param1,  
-      /*[in ]*/const char* param2,  
+      /*[in ]*/const char*    param2,  
       /*[out]*/IAsynDnsResolver** object )  
 ```  
 
