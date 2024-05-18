@@ -4,7 +4,7 @@
 
 ## 导出函数  
 ```c++  
-HRESULT __stdcall CreateAsynDnsResolver(/*[in ]*/InstancesManager* lpInstancesManager,  
+HRESULT __stdcall CreateAsynDnsResolver(/*[in ]*/IAsynNetwork* lpAsynNetwork,  
       /*[in ]*/IAsynMessageEvents* events,  
       /*[in ]*/IKeyvalSetter* param1,  
       /*[in ]*/const char*    param2,  

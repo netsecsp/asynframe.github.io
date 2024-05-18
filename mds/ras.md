@@ -4,7 +4,7 @@
 
 ## 导出函数  
 ```c++  
-HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpIInstancesManager,  
+HRESULT __stdcall CreateAppService(/*[in ]*/IAsynNetwork* lpAsynNetwork,  
          /*[in ]*/IUnknown* object,  
          /*[in ]*/IKeyvalSetter* param1,  
          /*[in ]*/const char*    param2,  
@@ -17,9 +17,10 @@ HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpIInstancesManage
 *[out]object*  
 
 ```c++  
-HRESULT __stdcall Execute( /*[in ]*/InstancesManager* lpInstancesManager,  
-      /*[in ]*/IUnknown*   param1,  
-      /*[in ]*/const char* param2 )  
+HRESULT __stdcall CreateObject( /*[in ]*/InstancesManager* lpInstancesManager,  
+      /*[in ]*/IUnknown* param1,  
+      /*[in ]*/uint64_t  param2,  
+      /*[out]*/IUnknown** object)  
 ```  
 ## 参数
 *[in, opt]param1*  
@@ -37,11 +38,12 @@ S_OK表示执行成功，其他值表示执行失败。
 枚举网络连接名称  
 ```c++  
 asynsdk::CStringSetter  ras(1, "com.svc.ras");
-asynsdk::CStringVector  out(1);
-lpInstancesManager->Execute(&ras, 0, asynsdk::STRING_EX::null, &out);
-for(int i = 0; i < out.m_val.size(); ++ i)
+CComPtr<IStringVector>  out;
+lpInstancesManager->NewInstance(&ras, 0, (IUnknown**)&out);
+STRING v;
+for(int i = 0; out->Get(i, &v); ++ i)
 {
-    printf("%d: %s\n", out.m_val[i].c_str());
+    printf("%d: %.*s\n", i, v.len, (const char*)v.ptr);
 }
 ```  
 创建Ras服务对象  

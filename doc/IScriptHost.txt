@@ -29,19 +29,31 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
-import "ITypedef.idl";
+import "IAsynFrame.idl";
 
     cpp_quote("#pragma pack(push, 1)")
 
     [
         object,
-        uuid(3427C7EA-00B9-4868-819A-02F01E756A69),
-        helpstring("IVmHost Interface"),
+        uuid(39536006-6C36-4C2D-A222-E6835D3F781B),
+        helpstring("SObject Interface"),
         pointer_default(unique)
     ]
-    interface IVmHost : IUnknown
+    interface SObject : IUnknown
     {
-        HRESULT AttachCurrentThread( [in ]uint32_t params, [out]handle* env );
+        HRESULT Get( [out]STRING* name);
+        HRESULT CastOf( [in ]STRING name, [out]IUnknown** object );
+    };
+
+    [// 显式继承IAsynMessageHolder接口，for lua/java
+        object,
+        uuid(3427C7EA-00B9-4868-819A-02F01E756A69),
+        helpstring("IScriptHost Interface"),
+        pointer_default(unique)
+    ]
+    interface IScriptHost : IAsynMessageHolder
+    {
+        HRESULT AttachCurrentThread( [in ]uint32_t unused, [out]handle* env );
         HRESULT DetachCurrentThread();
     };
 

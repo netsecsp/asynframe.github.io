@@ -4,7 +4,7 @@
 
 ## 导出函数  
 ```c++  
-HRESULT __stdcall CreateAppService(/*[in ]*/InstancesManager* lpIInstancesManager,  
+HRESULT __stdcall CreateAppService(/*[in ]*/IAsynNetwork* lpAsynNetwork,  
          /*[in ]*/IUnknown* object,  
          /*[in ]*/IKeyvalSetter* param1,  
          /*[in ]*/const char*    param2,  

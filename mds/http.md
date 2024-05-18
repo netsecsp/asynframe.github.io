@@ -4,7 +4,7 @@
 
 ## 导出函数  
 ```c++  
-HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/InstancesManager* lpInstancesManager,  
+HRESULT __stdcall CreateAsynPtlSocket(/*[in ]*/IAsynNetwork* lpAsynNetwork,  
       /*[in ]*/IAsynRawSocket* socket,  
       /*[in ]*/IUnknown**  param1,  
       /*[in ]*/const char* param2,  
