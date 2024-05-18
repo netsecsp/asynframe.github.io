@@ -64,7 +64,7 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 |sqlite|插件|基于sqlite-3.3.20实现IOsComman接口|\support\testframe|
 
 # 变更记录
-> 2024/05/10 发布windows平台的asynframe framework v1.6.0  
+> 2024/05/17 发布windows平台的asynframe framework v1.6.0  
 1. 发布版本: 面向设计重构架构/接口  
 2. 支持检测网卡变动事件  
 3. 修复已知问题  
