@@ -24,7 +24,7 @@ S_OK表创建对象成功，其他值表示创建对象失败。
 插入数据  
 ```c++  
 asynsdk::CStringSetter name(1, argc > 2 ? argv[2] : "test.db");
-spCommand.Attach(asynsdk::CreateCommand(lpInstancesManager, "sqlite", 0, &name, 0));
+asynsdk::CreateObject(lpInstancesManager, "sqlite", &name, 0, IID_IOsCommand, (IUnknown**)&spCommand);
 
 spCommand->Execute(0, STRING_from_string("CREATE TABLE IF NOT EXISTS coreinfo(iseq INTEGER PRIMARY KEY AUTOINCREMENT, info TEXT, vals int);"), 0, 0, 0, 0);
 
