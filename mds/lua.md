@@ -20,7 +20,8 @@ S_OK表创建对象成功，其他值表示创建对象失败。
 ## 开发  
 创建lua对象
 ```c++  
-asynsdk::CreateObject(lpInstancesManager, "lua", 0, 0, IID_IOsCommand, (IUnknown**)&spCommand);
+asynsdk::CStringSetter home("C:\\Program Files (x86)\\lua");
+asynsdk::CreateObject(lpInstancesManager, "com.command.lua", &home, 0, IID_IOsCommand, (IUnknown**)&spCommand);
 spCommand->Execute(0, STRING_from_string("open"), &STRING_from_string("test.lua"), 1, 0); //执行test.lua脚本
 spCommand->Execute(0, STRING_from_string("print("This is my world!")"), 0, 0, 0); //执行lua脚本块
 ```  
