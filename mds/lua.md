@@ -1,6 +1,6 @@
 # Lua 插件  
 
-基于lua-5.4.4提供IOsCommand接口，支持IOsCommand/IScriptHost接口  
+提供IOsCommand接口，支持IOsCommand/IScriptHost接口  
 
 ## 导出函数  
 ```c++  
