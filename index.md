@@ -70,16 +70,17 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 |python38/python312|插件|实现IOsComman接口执行python框架|\support\testpython\testpython<br>\support\testpython\testapi|
 
 # 变更记录
-> 2024/11/12 发布windows平台的asynframe framework v1.8.1  
-1. 发布插件: python38/python312  
-> 2024/08/16 发布windows平台的asynframe framework v1.7.1  
-> 2024/07/12 发布windows平台的asynframe framework v1.6.1  
-> 2023/11/15 发布windows平台的asynframe framework v1.5.2  
-> 2023/03/31 发布windows平台的asynframe framework v1.4.6  
-> 2023/02/02 发布windows平台的asynframe framework v1.3.2  
-> 2022/06/08 发布windows平台的asynframe framework v1.2.0  
-> 2022/05/26 发布windows平台的asynframe framework v1.1.0  
-> 2022/05/05 发布windows平台的asynframe framework v1.0.0  
+2024/11/12 发布windows平台的asynframe framework v1.8.1  
+> 发布插件: python38/python312  
+
+2024/08/16 发布windows平台的asynframe framework v1.7.1  
+2024/07/12 发布windows平台的asynframe framework v1.6.1  
+2023/11/15 发布windows平台的asynframe framework v1.5.2  
+2023/03/31 发布windows平台的asynframe framework v1.4.6  
+2023/02/02 发布windows平台的asynframe framework v1.3.2  
+2022/06/08 发布windows平台的asynframe framework v1.2.0  
+2022/05/26 发布windows平台的asynframe framework v1.1.0  
+2022/05/05 发布windows平台的asynframe framework v1.0.0  
 
 # 编译环境
 > sdk_v1.8.1-Msvc2019_20241112.zip是通过Microsoft Visual Studio 2019编译的SDK  
@@ -159,6 +160,7 @@ int main(int argc, const char *argv[])
 [console](https://netsecsp.github.io/mds/console.md)  
 [lua](https://netsecsp.github.io/mds/lua.md)  
 [jvm](https://netsecsp.github.io/mds/jvmproxy.md)  
+[python](https://netsecsp.github.io/mds/python.md)  
 [zip](https://netsecsp.github.io/mds/zip.md)  
 [sqlite](https://netsecsp.github.io/mds/sqlite.md)  
 

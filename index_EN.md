@@ -64,22 +64,23 @@ Asynframe framework solves the six problems mentioned above in the process of so
 |websocket|plugin[asynsock]|websocket protocol<br>1.implement data frame slice<br>2.priority transmission control frame|\support\testnetclient_websocket<br>\support\testnetserver_websocket|
 |zip|plugin|Implementation of IDataTransmit interface based on zlib-1.2.11.0<br>1.implement zip files<br>2.deflate/inflate data|\support\testframe|
 |sqlite|plugin|Implementation of IOsCommand interface based on sqlite-3.3.20|\support\testframe|
-|Dtp|plugin[asyncock]|port reuse framework to implement tcp/udp|support testnetserver_ dtp-tcp.port<br>\support\testnetserver_ dtp-udp.port|
+|dtp|plugin[asynsock]|port reuse framework to implement tcp/udp|support testnetserver_ dtp-tcp.port<br>\support\testnetserver_ dtp-udp.port|
 |lua|plugin|Implementation of IOsCommand interface lua framework|\support\testlua\testlua<br>\support\testlua\testapi|
 |jvmproxy|plugin|Implementation of IOsCommand interface java framework|\support\testjava\testjvm<br>\support\testjava\testapi<br>[javax](https://github.com/netsecsp/javax)|
 |python38/python312|plugin|Implementation of IOsCommand interface python framework|\support\testpython\testpython<br>\support\testpython\testapi|
 
 # Change log
-> 2024/11/12 Release asynframe framework v1.8.1  
-1. Release plugin: python38/python312  
-> 2024/08/16 Release asynframe framework v1.7.1  
-> 2024/07/12 Release asynframe framework v1.6.1  
-> 2023/11/15 Release asynframe framework v1.5.2  
-> 2023/03/31 Release asynframe framework v1.4.6  
-> 2023/02/02 Release asynframe framework v1.3.2  
-> 2022/06/08 Release asynframe framework v1.2.0  
-> 2022/05/26 Release asynframe framework v1.1.0  
-> 2022/05/05 Release asynframe framework v1.0.0  
+2024/11/12 Release asynframe framework v1.8.1  
+> Release plugin: python38/python312  
+
+2024/08/16 Release asynframe framework v1.7.1  
+2024/07/12 Release asynframe framework v1.6.1  
+2023/11/15 Release asynframe framework v1.5.2  
+2023/03/31 Release asynframe framework v1.4.6  
+2023/02/02 Release asynframe framework v1.3.2  
+2022/06/08 Release asynframe framework v1.2.0  
+2022/05/26 Release asynframe framework v1.1.0  
+2022/05/05 Release asynframe framework v1.0.0  
 
 # Build
 > sdk_v1.8.1-Msvc2019_20241112.zip is compiled through Microsoft Visual Studio 2019  
