@@ -1,4 +1,4 @@
-## Asynframe framework v1.8.1  
+## Asynframe framework v1.9.0  
 > https://github.com/netsecsp/asynframe  
 
 # 项目背景 [english](/index_EN.md)   
@@ -39,9 +39,7 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 4. 通过异步执行框架来获得极流畅用户体验。  
 5. 统一的开发模板，无锁化机制、高性能IO框架以及demo降低开发者学习成本。能够迅速开发出稳定地，高性能的应用模块。可大幅度降低开发代码量。  
 6. 支持网络udp/tcp端口复用框架。  
-7. 支持lua框架。  
-8. 支持jvm框架。  
-9. 支持python框架。  
+7. 支持lua, jvm和python框架。  
 
 |模块|类型|功能|例子/程序|
 |:--|:--|:--|:--|
@@ -70,9 +68,10 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 |python38/python312|插件|实现IOsComman接口执行python框架|\support\testpython\testpython<br>\support\testpython\testapi|
 
 # 变更记录
-2024/11/12 发布windows平台的asynframe framework v1.8.1  
-> 发布插件: python38/python312  
+2024/12/23 发布windows平台的asynframe framework v1.9.0  
+> 优化性能  
 
+2024/11/11 发布windows平台的asynframe framework v1.8.1  
 2024/08/16 发布windows平台的asynframe framework v1.7.1  
 2024/07/12 发布windows平台的asynframe framework v1.6.1  
 2023/11/15 发布windows平台的asynframe framework v1.5.2  
@@ -83,8 +82,8 @@ asynframe framework解决上面所提的软件产品开发过程中的六大问�
 2022/05/05 发布windows平台的asynframe framework v1.0.0  
 
 # 编译环境
-> sdk_v1.8.1-Msvc2019_20241112.zip是通过Microsoft Visual Studio 2019编译的SDK  
-> sdk_v1.8.1-Msvc2013_20241112.zip是通过Microsoft Visual Studio 2013编译的SDK  
+> sdk_v1.9.0-Msvc2019_20241223.zip是通过Microsoft Visual Studio 2019编译的SDK  
+> sdk_v1.9.0-Msvc2013_20241223.zip是通过Microsoft Visual Studio 2013编译的SDK  
 
 1. 需在工程里设置asynframe相应的include/lib路径  
 2. 根据工程的运行库选择链接asynframe相应的asynsdk_mini-[MD/MDd/MT/MTd].lib  

@@ -1,4 +1,4 @@
-## Asynframe framework v1.8.1 
+## Asynframe framework v1.9.0 
 > https://github.com/netsecsp/asynframe  
 
 # Background [中文](/index.md)  
@@ -39,9 +39,7 @@ Asynframe framework solves the six problems mentioned above in the process of so
 4. Get a very smooth user experience through the asynchronous execution framework.  
 5. The unified development template, non locking mechanism, high-performance IO framework and demo reduce the learning cost of developers. It can rapidly develop stable and high-performance application modules. It can greatly reduce the amount of developed code.  
 6. Support network UDP/TCP port multiplexing framework.  
-7. Support Lua framework.  
-8. Support JVM framework.  
-9. Support Python framework.  
+7. Support Lua, Jvm and Python framework.  
 
 |module|type|function|demo|
 |:--|:--|:--|:--|
@@ -70,9 +68,10 @@ Asynframe framework solves the six problems mentioned above in the process of so
 |python38/python312|plugin|Implementation of IOsCommand interface python framework|\support\testpython\testpython<br>\support\testpython\testapi|
 
 # Change log
-2024/11/12 Release asynframe framework v1.8.1  
-> Release plugin: python38/python312  
+2024/12/23 Release asynframe framework v1.9.0  
+> Optimize performance  
 
+2024/11/11 Release asynframe framework v1.8.1  
 2024/08/16 Release asynframe framework v1.7.1  
 2024/07/12 Release asynframe framework v1.6.1  
 2023/11/15 Release asynframe framework v1.5.2  
@@ -83,8 +82,8 @@ Asynframe framework solves the six problems mentioned above in the process of so
 2022/05/05 Release asynframe framework v1.0.0  
 
 # Build
-> sdk_v1.8.1-Msvc2019_20241112.zip is compiled through Microsoft Visual Studio 2019  
-> sdk_v1.8.1-Msvc2013_20241112.zip is compiled through Microsoft Visual Studio 2013  
+> sdk_v1.9.0-Msvc2019_20241223.zip is compiled through Microsoft Visual Studio 2019  
+> sdk_v1.9.0-Msvc2013_20241223.zip is compiled through Microsoft Visual Studio 2013  
 
 1. The include / lib path corresponding to asynframe needs to be set in the project  
 2. Select and link the corresponding asynsdk of asynframe according to the runtime of the asynsdk_mini-[MD/MDd/MT/MTd].lib  
@@ -160,6 +159,7 @@ int main(int argc, const char *argv[])
 [console](https://netsecsp.github.io/mds/console.md)  
 [lua](https://netsecsp.github.io/mds/lua.md)  
 [jvm](https://netsecsp.github.io/mds/jvmproxy.md)  
+[python](https://netsecsp.github.io/mds/python.md)  
 [zip](https://netsecsp.github.io/mds/zip.md)  
 [sqlite](https://netsecsp.github.io/mds/sqlite.md)  
 
